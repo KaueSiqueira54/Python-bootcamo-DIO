@@ -1,0 +1,6 @@
+print(1 * 10)
+print(100 + 100)
+print(1.5 + 100)
+print(True)
+print(bool)
+print("tipos de formatação")
