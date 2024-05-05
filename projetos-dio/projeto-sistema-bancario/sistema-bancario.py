@@ -90,7 +90,7 @@ while True:
                             limite_saque = limite_saque - valor_sacado
                             total_sacado = total_sacado + valor_sacado
                             saldo = saldo - valor_sacado
-                            extrato += f"SAQUE = R$:{valor_sacado:.2f}\n"
+                            extrato += f"SAQUE: R${valor_sacado:.2f}\n"
                             print("VALOR SACADO COM SUCESSO!")
                             print("VOCÊ TEM {} SAQUES DIÁRIOS".format(saque))
                             sleep(0.5)
