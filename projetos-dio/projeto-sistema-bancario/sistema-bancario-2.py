@@ -9,7 +9,7 @@ usuarios= []
 contas = []
 numero_conta = 0
 AGENCIA = "0001"
-#lista_usuarios = []
+
 while True:
     menu = int(input('''
         
@@ -77,7 +77,6 @@ while True:
         usuarios.append({"nome":nome, "data_nascimento": data_nascimento, "endereco": endereco}) 
         print("USUÁRIO CADASTRADO COM SUCESSO!")
         usuarios.append(cpf)
-        #usuarios_a = usuarios
         return cpf, usuarios
 
 
