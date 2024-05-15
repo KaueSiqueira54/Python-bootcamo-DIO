@@ -5,8 +5,9 @@ saldo = 0
 extrato = " "
 valor = 0
 cont = 0
-usuarios = []
+usuarios= []
 contas = []
+numero_conta = 0
 AGENCIA = "0001"
 #lista_usuarios = []
 while True:
@@ -29,7 +30,7 @@ while True:
         if valor <= 0:
             print("ALGO DEU ERRADO!")
             print("TENTE NOVAMENTE!")
-        elif saldo <= 0:
+        elif saldo <= 0 or valor > saldo:
             print("SALDO INSUFICIENTE PARA SAQUE!")
         elif numero_saques <= 0:
             print("VOCE EXCEDEU O NÚMERO DE SAQUES DIÁRIOS!")
@@ -66,39 +67,43 @@ while True:
 
     def criar_usuario(usuarios):
         cpf = input("DIGITE SEU CPF: \n")
-        usuario = lista_usuarios(cpf, usuarios)
-
-        if usuario:
-            print("CPF JÁ CADASTRADO!")
-            return
-        
+        lista_usuarios(cpf, usuarios)
+    
+        if cpf in lista_usuarios(cpf, usuarios):
+            print("CPF JÁ DADASTRADO!")
         nome = input("DIGITE SEU NOME COMPLETO: \n".title())
         data_nascimento = input("DIGITE SUA DATA DE NASCIMENTO: \n")
         endereco = input("DIGITE SEU ENDEREÇO (LOGRADOURO,  NUMERO,  BAIRRO - CIDADE/SIGLA ESTRADO)\n")
         usuarios.append({"nome":nome, "data_nascimento": data_nascimento, "endereco": endereco}) 
         print("USUÁRIO CADASTRADO COM SUCESSO!")
+        usuarios.append(cpf)
+        #usuarios_a = usuarios
+        return cpf, usuarios
 
 
     def lista_usuarios(cpf, usuarios):
-        usuarios_filtrados = [usuario for usuario in usuarios if usuario ["cpf"] == cpf]
-        return usuarios_filtrados[0] if usuarios_filtrados else None
+        if cpf == "cpf" in usuarios:
+            print("CPF JÁ CADASTRADO")
+        return usuarios
+        
 
-    def criar_conta(agencia, numero_conta, usuarios):
+    def criar_conta(AGENCIA, numero_conta, usuarios):
         cpf = str(input("DIGITE SEU CPF: \n"))
         usuario = lista_usuarios(cpf, usuarios)
 
         if usuario:
             print("CONTA CRIADA COM SUCESSO!")
-            return agencia, numero_conta, usuarios
+            numero_conta += 1
+            contas = AGENCIA, numero_conta, usuarios
+            return AGENCIA, numero_conta, usuarios
         print("USUÁRIO NÃO ENCONTRADO!")
 
     def listar_contas(contas):
         for conta in contas:
-            linha = f"""/
-            Agência: {conta['agencia']}
-            C/C: {conta['numero_conta']}
-            Titular: {conta['usuario']['nome']}
-            """
+            print(f"C/C={numero_conta}")
+            print(f"AGENCIA={AGENCIA}")
+            print(f"USUARIO={usuarios}")
+
 
 
     if menu ==1:
@@ -139,4 +144,3 @@ while True:
         break
     else:
         print("OPERAÇÃO INVÁLIDA!")
-    
