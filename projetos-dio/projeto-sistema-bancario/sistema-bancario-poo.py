@@ -9,8 +9,6 @@ class Conta():
         self._cliente = _cliente
         self._historico = _historico
 
-    #def saldo(saldo):
-
 class Cliente():
     def __init__(self, endereco, contas):
         self.endereco = endereco
