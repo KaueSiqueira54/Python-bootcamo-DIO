@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+from contrib.routers import api_router
 
 app = FastAPI(tittle="workout_api")
+app.include_router(api_router)
+
 
 if __name__ == "main":
     import uvicorn

@@ -1,7 +1,7 @@
 from typing import Annotated
 from pydantic import Field, PositiveFloat
 
-from contrib.schemas import BaseSchema
+from contrib.schemas import BaseSchema, OutMixin
 
 class Atleta(BaseSchema):
     nome: Annotated(str, Field(description="Nome do ateta", example="João", max_lenght=50))
@@ -11,7 +11,10 @@ class Atleta(BaseSchema):
     altura: Annotated(PositiveFloat, Field(description="Altura do Atleta", example=1.70))
     sexo: Annotated(PositiveFloat, Field(description="Sexo do Atleta", example="M", max_lenght=1))
 
-
+class AtletaIn(Atleta):
+    pass
+class AtletaOut(Atleta, OutMixin):
+    pass
     
 
 
