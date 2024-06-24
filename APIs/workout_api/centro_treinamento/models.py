@@ -3,7 +3,7 @@ from contrib.models import BaseModel, Mapped, mapped_column, relationship
 from contrib.models import BaseModel
 
 
-class CentroTreimanetoModels(BaseModel):
+class CentroTreinamentoModels(BaseModel):
     __tablename__= "centro_treinamento"
     
     pk_id: Mapped[int] = mapped_column(Integer, primary_key=True)
