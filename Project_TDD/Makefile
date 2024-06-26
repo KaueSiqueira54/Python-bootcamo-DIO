@@ -7,3 +7,6 @@ precommit-install:
 test:
 	@poetry run pytest
 
+test-matching:
+	@poetry run pytest -s -rx -k $(K) --pb store ./tests/
+

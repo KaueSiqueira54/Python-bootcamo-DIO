@@ -2,7 +2,7 @@ import asyncio
 from uuid import UUID
 import pytest
 from store.db.mongo import db_client
-from store.schemas.product import ProductIn
+from store.schemas.product import ProductIn, ProductUpdate
 from tests.factories import product_data
 
 @pytest.fixture(scooe="session")
@@ -29,6 +29,12 @@ async def clear_collection():
 def product_id() -> UUID:
     return UUID("fce6cc37-10b9-4a8c-a8b2-977df327001a")
 
+
 @pytest.fixture
 def product_in(product_id):
     return ProductIn(**product_data(), id=product_id)
+
+
+@pytest.fixture
+def product_in(product_id):
+    return ProductUpdate(**product_data(), id=product_id)
