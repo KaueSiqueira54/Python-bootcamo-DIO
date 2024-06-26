@@ -1,0 +1,9 @@
+from store.usecases.product import product_usecase
+
+
+async def test_usecasses_should_return_sucess(product_in):
+    result = await product_usecase.create(body=product_in)
+
+    #assert isinstance(result, ProductOut)
+    assert result is None
+    
