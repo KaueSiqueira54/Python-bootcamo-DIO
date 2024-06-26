@@ -12,7 +12,6 @@ def test_schemas_return_sucess():
 
 
     assert product.name == "Iphone 14 pro Max"
-    assert isinstance(product.id, UUID)
 
 def test_schemas_return_raise():
     data = {"name":"Iphone 14 pro Max","quantity":10, "price":8.500}
